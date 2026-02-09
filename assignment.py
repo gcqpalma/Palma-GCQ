@@ -23,6 +23,7 @@ def calculate_circumference(radius, pi_val):
 # --- THE EXPERIMENT ---
 ORBIT_RADIUS = 40_000_000_000
 precisions_to_test = [20, 40, 60, 100]
+
 # Calculate "Absolute Truth"
 true_pi = Decimal(GOLD_STANDARD_PI)
 true_circ = calculate_circumference(ORBIT_RADIUS, true_pi)
@@ -44,9 +45,8 @@ for p in precisions_to_test:
     error_round = abs(true_circ - circ_round)
 
     # 3. Print Results for this level 
-    # We will use scientific notation
-    print(f"{p:<10} | {'Trunc':<10} | {error_trunc:.10e}")
-    print(f"{p:<10} | {'Round':<10} | {error_round:.10e}")
+    print(f"{p:<10} | {'Trunc':<10} | {error_trunc:.110f}")
+    print(f"{p:<10} | {'Round':<10} | {error_round:.110f}")
     
     print("-" * 70)
 
